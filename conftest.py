@@ -3,7 +3,6 @@ from playwright.sync_api import sync_playwright
 import allure
 from utilities.allure_helper import attach_step_screenshot
 
-
 @pytest.fixture(scope="session")
 def browser_instance():
     with sync_playwright() as playwright:
