@@ -1,3 +1,5 @@
+import time
+
 from pytest_bdd import scenarios, given, when, then, parsers
 from pages.login_page import LoginPage
 
@@ -26,6 +28,7 @@ def click_login(page):
 @then("I should see the home page")
 def verify_home_page(page):
     assert page.url.__contains__("https://rahulshettyacademy.com/loginpagePractise/")
+    time.sleep(2)
 
 
 @when(parsers.parse('I select the role as "{role}"'))

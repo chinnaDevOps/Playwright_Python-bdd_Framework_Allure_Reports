@@ -4,17 +4,19 @@ import allure
 
 
 def pytest_adoption(parser):
-    parser.addoption(
-        "--env",
-        action="store",
-        default="QA",
-        help="Environment to run tests on: QA / UAT / DEV / PROD"
-    )
+    parser.addoption( "--env", action="store",default="QA",help="Environment to run tests on: QA / UAT / DEV / PROD")
+    parser.addoption("--browser_name", action="store", default="chrome", help="browser selection")
 
 @pytest.fixture(scope="session")
-def browser_instance():
+def browser_instance(request):
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False, args=["--start-maximized"])
+        browser_name = request.config.getoption("browser_name")
+        if browser_name == "chrome":
+             browser = playwright.chromium.launch(headless=False, args=["--start-maximized"])
+        elif browser_name == "firefox":
+            browser = playwright.firefox.launch(headless=False, args=["--start-maximized"])
+        elif browser_name == "safari":
+            browser = playwright.webkit.launch(headless=False)
         yield browser
         browser.close()
 
