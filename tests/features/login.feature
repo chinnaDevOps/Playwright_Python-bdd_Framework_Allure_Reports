@@ -1,3 +1,4 @@
+@smokeTest
 Feature: Login to Application
 
   Scenario: Login with valid credentials

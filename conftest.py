@@ -1,7 +1,15 @@
 import pytest
 from playwright.sync_api import sync_playwright
 import allure
-from utilities.allure_helper import attach_step_screenshot
+
+
+def pytest_adoption(parser):
+    parser.addoption(
+        "--env",
+        action="store",
+        default="QA",
+        help="Environment to run tests on: QA / UAT / DEV / PROD"
+    )
 
 @pytest.fixture(scope="session")
 def browser_instance():
