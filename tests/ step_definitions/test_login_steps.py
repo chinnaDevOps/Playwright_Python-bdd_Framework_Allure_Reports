@@ -7,18 +7,20 @@ scenarios('../features/login.feature')
 
 
 @given("I am on the login page")
-def open_login_page(page):
+def open_login_page(page, base_url):
     login = LoginPage(page)
-    login.navigate("https://rahulshettyacademy.com/loginpagePractise")
+    login.navigate(base_url)
     return login
 
-@when(parsers.parse('I enter username "{username}"'))
-def enter_username(page, username):
-    LoginPage(page).enter_username(username)
+@when("I enter valid username")
+def enter_username(page, credentials):
+    LoginPage(page).enter_username(credentials["username"])
 
-@when(parsers.parse('I enter password "{password}"'))
-def enter_password(page, password):
-    LoginPage(page).enter_password(password)
+
+@when("I enter valid password")
+def enter_password(page, credentials):
+    LoginPage(page).enter_password(credentials["password"])
+
 
 @when("I click login")
 def click_login(page):
@@ -29,8 +31,6 @@ def click_login(page):
 def verify_home_page(page):
     assert page.url.__contains__("https://rahulshettyacademy.com/loginpagePractise/")
     time.sleep(2)
-
-
 @when(parsers.parse('I select the role as "{role}"'))
 def click_login(page, role):
     LoginPage(page).select_role(role)

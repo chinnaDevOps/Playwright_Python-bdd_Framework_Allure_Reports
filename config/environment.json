@@ -2,19 +2,19 @@
     "env": "qa",
 
     "qa": {
-        "base_url": "https://qa-app.example.com",
-        "username": "qa_user",
-        "password": "qa_pass"
+        "base_url": "https://rahulshettyacademy.com/loginpagePractise",
+        "username": "rahulshettyacademy",
+        "password": "learning"
     },
 
     "staging": {
-        "base_url": "https://staging-app.example.com",
+        "base_url": "https://rahulshettyacademy.com/loginpagePractise",
         "username": "stage_user",
         "password": "stage_pass"
     },
 
     "prod": {
-        "base_url": "https://prod-app.example.com",
+        "base_url": "https://rahulshettyacademy.com/loginpagePractise",
         "username": "prod_user",
         "password": "prod_pass"
     }
