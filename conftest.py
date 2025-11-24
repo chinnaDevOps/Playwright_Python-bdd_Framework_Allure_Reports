@@ -48,7 +48,7 @@ def credentials(env_config):
 @pytest.fixture(scope="session")
 def browser_instance(pytestconfig):
     value = pytestconfig.getoption("--my-browser")
-    print("🔥 BROWSER CLI VALUE RECEIVED =", value)
+    print("BROWSER CLI VALUE RECEIVED =", value)
     browser_name = pytestconfig.getoption("--my-browser").lower()
 
     with sync_playwright() as playwright:
@@ -90,11 +90,12 @@ def pytest_bdd_after_step(request, feature, scenario, step, step_func, step_func
         name=f"Step - {step.name}",
         attachment_type=allure.attachment_type.PNG
     )
-REPORT_DIR = "reports/allure-results"
+
 
 def pytest_sessionstart(session):
+    REPORT_DIR = "reports/allure-results"
     """Clean allure results before running tests."""
     if os.path.exists(REPORT_DIR):
         shutil.rmtree(REPORT_DIR)
     os.makedirs(REPORT_DIR, exist_ok=True)
-    print(f"✨ Cleaned Allure report folder: {REPORT_DIR}")
+    print(f"Cleaned Allure report folder: {REPORT_DIR}")
