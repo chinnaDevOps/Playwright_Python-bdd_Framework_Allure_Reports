@@ -1,0 +1,2 @@
+ENV FILE PATH: C:\Users\chinn\OneDrive\Desktop\python_playwright_framework\config\environment.json
+🔥 BROWSER CLI VALUE RECEIVED = chrome
