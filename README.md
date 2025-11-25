@@ -9,6 +9,7 @@ Java(for allure reports)
 Python 3.8+ 
 
 **Playwright pytest Installation process** (both Windows, Macbook)
+
 create folder(in your system) --> cd <folder>
 
 python -m venv venv
