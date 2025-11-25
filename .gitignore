@@ -1,6 +1,6 @@
-.venv/
-allure-results/
-allure-report/
+#.venv/
+#allure-results/
+#allure-report/
 __pycache__/
 artifacts/screenshots/
 *.log
